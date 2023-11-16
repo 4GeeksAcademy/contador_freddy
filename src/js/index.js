@@ -9,4 +9,46 @@ import "../styles/index.css";
 import Home from "./component/home.jsx";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+
+let segundos = 0; // unidades
+
+let minuto = 0 // decimales
+
+let centena = 0
+
+let miles = 0
+
+setInterval(() => {
+
+    segundos++
+
+    if (
+        segundos > 9
+    ) {
+        segundos = 0
+
+        minuto++
+    }
+
+    if (minuto >9 )
+
+    {
+        minuto = 0
+
+        centena++
+
+    }
+
+    if (centena >9){
+
+        centena = 0
+
+        miles++
+
+    }
+
+    ReactDOM.render(<Home segundos={segundos} minuto={minuto} centena={centena} miles={miles}/>, document.querySelector("#app"));
+}, 1000);
+
+
+
